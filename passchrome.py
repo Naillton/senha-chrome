@@ -10,8 +10,8 @@ conexao = sqlite3.connect(banco2)
 consulta = conexao.cursor()
 consulta.execute("SELECT action_url, username_value, password_value FROM logins")
 for site,login,senha in consulta.fetchall():
-	print site + "\n" + login
+	print (site + "\n" + login)
 	senha = win32crypt.CryptUnprotectData(senha)
-	print senha[1].decode("ISO-8959-1") + "\n"
+	print (senha[1].decode("ISO-8959-1") + "\n")
 conexao.close()
 os.remove(banco2)
